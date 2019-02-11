@@ -1,0 +1,11 @@
+#!/bin/bash
+# hooks/build
+# https://docs.docker.com/docker-cloud/builds/advanced/
+
+# SOURCE_BRANCH: the name of the branch or the tag that is currently being tested.
+# IMAGE_NAME: the name and tag of the Docker repository being built.
+echo "[***] Build hook running"
+
+docker build \
+  --build-arg version=$SOURCE_BRANCH \
+  -t $IMAGE_NAME .
